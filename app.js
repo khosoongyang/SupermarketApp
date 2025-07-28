@@ -17,15 +17,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const pool = mysql.createPool({
-  host: 'xjx762.h.filess.io',
-  user: 'C237database_heardcost',
-  password: '23a3589f95c2f20c1c854f95acc5be39317d8e18',
-  database: 'C237database_heardcost',
-  port: 3307,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+const connection= mysql.createConnection({
+  host: 'c237-all.mysql.database.azure.com',
+  user: 'c237admin',
+  password: 'c2372025!', // safer to use env vars
+  database: 'supermarket',
+  port: 3306,
+  ssl: { rejectUnauthorized: true } // if using Azure, may need SSL config
 });
 
 connection.connect((err) => {
