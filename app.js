@@ -18,7 +18,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const connection = mysql.createConnection({
-  connectionLimit: 10,     // Max number of connections allowed at once
   host: 'c237-all.mysql.database.azure.com',       // Your MySQL server address
   user: 'c237admin',            // Your MySQL username
   password: 'c2372025!',            // Your MySQL password (empty if none)
